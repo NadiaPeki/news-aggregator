@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fetchArticles } from "../../api";
-
+import SearchBar from "../SearchBar/SearchBar";
 import styles from './Articles.module.css';
+
 
 function Articles() {
     const [articles, setArticles] = useState([]);
-    const [category, setCategory] = useState('eminem');
+    const [category, setCategory] = useState('everything');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -27,12 +28,13 @@ function Articles() {
             <div className={styles.showcase}>
                 <div className={styles.overlay}>
                     <h1 className={styles.textBold}>Viewing articles about {category}</h1>
+                    <SearchBar searchText={(text) => setCategory(text)}/>
 
                 </div>
             </div>
-            <section>
+            <section className={styles.section}>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <p className={styles.loadingText}>Loading...</p>
                 ) : (
                     articles.map((article, id) => {
                         const { title, abstract, url, lead_paragraph, author, pub_date, section_name, source } = article;
@@ -50,17 +52,19 @@ function Articles() {
 
                         const key = `${url}-${id}`;
                         return (
-                            <article key={key}>
-                                <h2>{title}</h2>
-                                <p>{abstract}</p>
-                                <a href={url} target="_blank" rel="noreferrer">Web Resource</a>
+                            <article key={key} className={styles.articleStyle}>
+                               
+                                <h2 className={styles.headerArticle}>{title}</h2>
+                                <a href={url} target="_blank" rel="noreferrer" className={styles.link}>Web Resource</a>
+                                <p className={styles.abstract}>{abstract}</p>
                                 <p>{lead_paragraph}</p>
-                                <ul>
-                                    <li>{authorName}</li>
-                                    <li>{pub_date}</li>
-                                    <li>{section_name}</li>
-                                    <li>{source}</li>
+                                <ul className={styles.list}>
+                                    <li><span className={styles.dataSpan}>Author:</span> {authorName}</li>
+                                    <li><span className={styles.dataSpan}>Date:</span> {pub_date}</li>
+                                    <li><span className={styles.dataSpan}>News category:</span> {section_name}</li>
+                                    <li><span className={styles.dataSpan}>Source:</span> {source}</li>
                                 </ul>
+                    
                             </article>
                         );
                     })
