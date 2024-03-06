@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import styles from './SearchBar.module.css'
 
-function SearchBar() {
+function SearchBar({searchText}) {
 const [text, setText] = useState(' ')
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        searchText(text)
     }
 
   return (
@@ -14,17 +15,13 @@ const [text, setText] = useState(' ')
               <input type='text'
                   placeholder='e.g.politics'
                   className={styles.inputSearch}
-                  onChange={(event) => setText(text)}
+                  onChange={(e) => setText(e.target.value)}
               />
               <button type='submit' className={styles.buttonSearch}>Search</button>
           </form>
     </div>
   )
 }
-
-
-
-
 
 
 
