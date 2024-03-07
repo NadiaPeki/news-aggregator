@@ -1,9 +1,9 @@
-/* p {
-  margin: 0;
-} */
 .showcase {
-    background: url('https://images.pexels.com/photos/3944425/pexels-photo-3944425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center/cover;
-    height: 400px;
+  background: url('https://images.pexels.com/photos/3944425/pexels-photo-3944425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center/cover;
+  height: 400px;
+  overflow-x: hidden;
+  max-width: 100%; /* Добавим максимальную ширину */
+  margin: 0 auto; /* Центрируем контейнер */
 }
   
   .showcase .overlay {
@@ -23,6 +23,7 @@
 }
 
   .section {
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -30,6 +31,10 @@
     margin:auto;
     column-count: 1; 
     max-width: 80%;
+}
+
+.section img {
+  max-width: 100%; 
 }
 
   .headerArticle {
@@ -64,4 +69,25 @@
 .loadingText {
   font-weight: bold;
   font-size: 30px;
+}
+
+/*Mobile*/
+
+@media screen and (max-width: 950px) {
+  .textBold {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+  .headerArticle {
+    font-size: 28px;
+}
+}
+
+@media screen and (max-width: 420px) {
+  .headerArticle {
+    font-size: 22px;
+}
+  .textBold {
+    font-size: 32px;
+}
 }

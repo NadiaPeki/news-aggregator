@@ -1,4 +1,4 @@
-import { formatArticle } from './utils.js';
+import { formatArticle } from './utilsFormatArticle.js';
 
 export const fetchArticles = async (category) => {
     try {

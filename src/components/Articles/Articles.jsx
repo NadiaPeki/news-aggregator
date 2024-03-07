@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { fetchArticles } from "../../api";
+import { fetchArticles } from "../../utils/api";
 import SearchBar from '../SearchBar/SearchBar'
 import FilterNewsPannel from '../FilterNewsPannel/FilterNewsPannel'
 import styles from './Articles.module.css';
-import { applyFilters } from "../../utilsFilters";
+import { applyFilters } from "../../utils/utilsFilters";
 
 function Articles() {
     const [articles, setArticles] = useState([]);
@@ -78,7 +78,7 @@ function Articles() {
                                 <h2 className={styles.headerArticle}>{title}</h2>
                                 <a href={url} target="_blank" rel="noreferrer" className={styles.link}>Web Resource</a>
                                 <p className={styles.abstract}>{abstract}</p>
-                                <p>{lead_paragraph}</p>
+                                <p className={styles.leadPeragraph}>{lead_paragraph}</p>
                                 <ul className={styles.list}>
                                     <li><span className={styles.dataSpan}>Author:</span> {authorName}</li>
                                     <li><span className={styles.dataSpan}>Date:</span> {pub_date}</li>

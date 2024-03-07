@@ -10,8 +10,8 @@ const [text, setText] = useState(' ')
     }
 
   return (
-      <div>
-          <form onSubmit={handleSubmit}>
+      <div >
+          <form className={styles.buttonWrapper} onSubmit={handleSubmit}>
               <input type='text'
                   placeholder='e.g.politics'
                   className={styles.inputSearch}

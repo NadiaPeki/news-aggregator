@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import styles from './FilterNewsPannel.module.css'
 
 function FilterNewsPannel({ onApplyFilters }) {
   const [filters, setFilters] = useLocalStorage('articleFilters', {
@@ -18,26 +19,28 @@ function FilterNewsPannel({ onApplyFilters }) {
   };
 
   return (
-    <div>
-      <h2>Filter Articles</h2>
-      <label>
+    <div className={styles.filterPannel}>
+      <h2 className={styles.filterHeader}>Filter Articles</h2>
+      <div className={styles.filtersWrapper}>
+      <label className={styles.labelText}>
         Category:
-        <input type="text" name="category" placeholder='e.g.music, art' value={filters.category} onChange={handleChange} />
+        <input type="text" name="category" placeholder='e.g.music, art' className={styles.inputFilter} value={filters.category} onChange={handleChange} />
       </label>
-      <label>
+      <label className={styles.labelText}>
         Source:
-        <select name="source" value={filters.source} onChange={handleChange}>
+        <select name="source" className={styles.inputSelect} value={filters.source} onChange={handleChange}>
           <option value="">All</option>
           <option value="NewsAPI">NewsAPI</option>
           <option value="New York Times">New York Times</option>
           <option value="The Guardian">The Guardian</option>
         </select>
       </label>
-      <label>
+      <label className={styles.labelText}>
         Author:
-        <input type="text" name="author" value={filters.author} onChange={handleChange} />
-      </label>
-      <button onClick={handleApplyFilters}>Apply Filters</button>
+        <input type="text" name="author" placeholder="type the author's name" className={styles.inputFilter} value={filters.author} onChange={handleChange} />
+        </label>
+        <button className={styles.buttonFilter} onClick={handleApplyFilters}>Apply Filters</button>
+        </div>
     </div>
   );
 }

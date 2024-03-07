@@ -16,3 +16,15 @@
     border-radius: 7px;
     width: 250px;
 }
+
+/*Mobile*/
+
+@media screen and (max-width: 450px) {
+  .buttonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
