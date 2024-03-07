@@ -27,6 +27,10 @@ function FilterNewsPannel({ onApplyFilters }) {
         <input type="text" name="category" placeholder='e.g.music, art' className={styles.inputFilter} value={filters.category} onChange={handleChange} />
       </label>
       <label className={styles.labelText}>
+        Author:
+        <input type="text" name="author" placeholder="type the author's name" className={styles.inputFilter} value={filters.author} onChange={handleChange} />
+        </label>
+      <label className={styles.labelTextCategory}>
         Source:
         <select name="source" className={styles.inputSelect} value={filters.source} onChange={handleChange}>
           <option value="">All</option>
@@ -35,10 +39,6 @@ function FilterNewsPannel({ onApplyFilters }) {
           <option value="The Guardian">The Guardian</option>
         </select>
       </label>
-      <label className={styles.labelText}>
-        Author:
-        <input type="text" name="author" placeholder="type the author's name" className={styles.inputFilter} value={filters.author} onChange={handleChange} />
-        </label>
         <button className={styles.buttonFilter} onClick={handleApplyFilters}>Apply Filters</button>
         </div>
     </div>

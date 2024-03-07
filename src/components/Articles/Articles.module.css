@@ -82,6 +82,12 @@
     font-size: 28px;
 }
 }
+@media screen and (max-width: 650px) {
+  .articleStyle {
+  padding: 0 10px 10px 10px;
+  }
+
+}
 
 @media screen and (max-width: 420px) {
   .headerArticle {
