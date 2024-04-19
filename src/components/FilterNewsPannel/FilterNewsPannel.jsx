@@ -52,7 +52,6 @@ function FilterNewsPannel({ onApplyFilters }) {
             value={filters.source}
             onChange={handleChange}>
             <option value="">All</option>
-            {/* <option value="NewsAPI">NewsAPI</option> */}
             <option value="New York Times">New York Times</option>
             <option value="The Guardian">The Guardian</option>
           </select>
