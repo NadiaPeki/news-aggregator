@@ -27,6 +27,8 @@
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
   padding: 30px;
   margin: auto;
@@ -39,7 +41,7 @@
 }
 
 .articleImageContainer img {
-  width: 100%;
+  width: 70%;
 }
 
 .headerArticle {
@@ -54,6 +56,13 @@
 
 .list {
   margin: 4px 0 4px 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .abstract {
@@ -85,6 +94,9 @@
   }
   .headerArticle {
     font-size: 28px;
+  }
+  .articleImageContainer img {
+    width: 100%;
   }
 }
 @media screen and (max-width: 650px) {
