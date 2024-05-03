@@ -6,11 +6,9 @@ export const fetchArticles = async (category) => {
         const NYTData = await NYTRes.json();
         const NYTArticles = NYTData.response.docs.map(article => formatArticle(article, 'New York Times'));
 
-        const guardianRes = await fetch(`https://content.guardianapis.com/search?page=2&q=${category}&api-key=${process.env.REACT_APP_GUARDIAN_API_KEY}`);
-        const guardianData = await guardianRes.json();
-        const guardianArticles = guardianData.response.results.map(article => formatArticle(article, 'The Guardian'));
 
-        const combinedArticles = [...NYTArticles, ...guardianArticles];
+
+        const combinedArticles = [...NYTArticles];
 
         return combinedArticles;
     } catch (error) {
